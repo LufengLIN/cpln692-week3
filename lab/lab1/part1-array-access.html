@@ -71,14 +71,36 @@
 
     /* =====================
 
-    Start code
 
     ===================== */
+    //Task1
+    let restaurantData = [
+                          [39.952510, -75.173262,"restaurant1"] ,
+                          [39.952152, -75.190144,"restaurant2"],
+                          [39.973129, -75.150686,"restaurant3"]
+                        ]
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-
+    //Task2
+    var addMarkers = function(themap) {
+    for (var j=0; j<restaurantData.length; j++) {
+      L.marker([restaurantData[j][0], restaurantData[j][1]])
+      .addTo(themap)}
+    };
+    addMarkers(map);
+    //Task3
+    restaurantData.push(
+    [39.958510, -75.173262,"restaurant3"],
+    [39.950152, -75.196144,"restaurant4"]
+    );
+    addMarkers(map);
+    //Task4
+    var addMarkers = function(themap) {
+    for (var j=0; j<restaurantData.length; j++) {
+      L.marker([restaurantData[j][0], restaurantData[j][1]])
+      .addTo(themap)
+      .bindPopup(restaurantData[j][2])}
+    };
+    addMarkers(map);
     /* =====================
 
     End code

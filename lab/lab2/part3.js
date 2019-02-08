@@ -14,7 +14,7 @@ Let's revisit the bike share data from Week 2 Lab 1, Part 4. Remember, each arra
 
 We're especially interested in number 4: number of bike share docks at the station.
 
-Using underscore functions, generate a list of all bike share docks that are greater than 20. One way to do 
+Using underscore functions, generate a list of all bike share docks that are greater than 20. One way to do
 this is by using _.filter, but you can try other solutions as well. Set your answer to variable "largeStationList".
 
 ## Task 2
@@ -25,6 +25,28 @@ by using _.countBy and set your answer to variable "largeStationCount".
 
 var data = bikeArrayClean;
 
-var largeStationList;
+var largeStationList=[];
 
 var largeStationCount;
+
+//Task1
+_.each(data, function(x){
+  if(_.last(x)>20) {
+    largeStationList.push(data);
+  }
+});
+console.log(largeStationList);
+
+var largeStationList2 = _.filter(data, function(x){
+  return x[3] > 20; });
+console.log(largeStationList2);
+
+//Task2
+largeStationCount = _.groupBy(data, function(y){
+  if (y[3] > 20) {
+    return "greater than 20";
+  } else {
+    return "others";
+  }
+});
+console.log(largeStationCount);

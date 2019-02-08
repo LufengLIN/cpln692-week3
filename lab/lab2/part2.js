@@ -18,3 +18,31 @@ _.each(myArray, function(value, key, list) {
   console.log(value, key, list);
 });
 ===================== */
+//Original code1
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+for (let i=0; i<vacationSpots.length; i++){
+  console.log(vacationSpots[i])
+}
+//Rewrite code1
+_.each(vacationSpots,(x) => console.log(x));
+//vacationSpots.forEach(x => console.log(x));
+
+//Original code2
+let array = [1,2,3,4,5,6,7,8,9];
+let threemultiple = []
+for (let i = 0; i < array.length; i++){
+  var value = array[i]
+  if (value % 3 === 0){
+    threemultiple.push(value);
+  }
+}
+console.log(threemultiple)
+
+//Rewrite code2
+let threemultiple2 = []
+_.each(array, function(y){
+  if(y % 3 === 0){
+    threemultiple2.push(y)
+  }
+})
+console.log(threemultiple2)

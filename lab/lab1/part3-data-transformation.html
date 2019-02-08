@@ -13,14 +13,14 @@
 
     <!--javascript imports-->
     <script src="leaflet.js"></script>
-    <script src="part4-data-clean.js"></script>
-    <script src="part4-data-dirty.js"></script>
+    <script src="part3-data-clean.js"></script>
+    <script src="part3-data-dirty.js"></script>
 
     <script>
 
     /* =====================
 
-    # Lab 1, Part 4 — Data Transformation
+    # Lab 1, Part 3 — Data Transformation
 
     ## Introduction
 
@@ -97,9 +97,31 @@
     Start code to add markers to map
 
     ===================== */
+    var addMarkers = function(Themap) {
+            for (var j=0; j<bikeArrayClean.length; j++) {
+              if (bikeArrayClean[j][3]>20) {
+                 L.marker([bikeArrayClean[j][1], bikeArrayClean[j][0]])
+                 .addTo(Themap)};
+               }
+             }
+    addMarkers(map);
 
-
-
+    let new_clean_array=[];
+    for (var i=0; i<bikeArrayDirty.length; i++) {
+      if (bikeArrayDirty[i][0].includes("BIKESHAREDATA.CSV,BIKES,BICYCLES")) {
+        bikeArrayDirty[i].shift()}
+      let stat
+      if (typeof bikeArrayDirty[i][3]!='undefined'){
+         stat = Number(bikeArrayDirty[i][3].substr(1, 2))
+      }
+      var x = [parseFloat(bikeArrayDirty[i][0]),
+               parseFloat(bikeArrayDirty[i][1]),
+               (bikeArrayDirty[i][2]),
+               stat
+             ]
+      new_clean_array.push(x);
+      };
+      console.log(new_clean_array)
     /* =====================
 
     End code to add markers to map
